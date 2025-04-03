@@ -1,4 +1,4 @@
-def is_prime(number):
+def is_prime(number : int) -> bool:
     """
     Function to determine whether a number is a prime number
     :param number: The number to determine whether it is prime or not
@@ -14,6 +14,13 @@ def is_prime(number):
     else:
         return False
     return True
+
+n1 = int(input())
+n2 = int(input())
+
+for i in range(n1, n2+1):
+    if is_prime(i):
+        print(i, end=' ')
 
 n = int(input())
 if is_prime(n):
