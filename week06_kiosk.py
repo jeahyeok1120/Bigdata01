@@ -1,6 +1,7 @@
 # 1) 아아 : 2000 2) 라떼 : 2500
-drinks = ["아이스아메리카노", "카페 라떼", "수박 주스", "딸기 주스"]
+drinks = ["아이스 아메리카노", "카페 라떼", "수박 주스", "딸기 주스"]
 prices = [1500, 2500, 4000, 4200]
+
 #amounts = list()
 #for _ in range(len(drinks)):
 #    amounts.append(0)
@@ -20,10 +21,12 @@ def order_process(idx):
     total_price = total_price + prices[idx]
     amounts[idx] = amounts[idx] + 1
 
-menu_texts = ""
-for j in range(len(drinks)):
-    menu_texts = menu_texts + f"{j+1}) {drinks[j]} {prices[j]}원  "
+# menu_texts = ""
+# for j in range(len(drinks)):
+#     menu_texts = menu_texts + f"{j+1}) {drinks[j]} {prices[j]}원  "
+menu_texts = "".join([f"{j+1}) {drinks[j]} {prices[j]}원  " for j in range(len(drinks))])
 menu_texts = menu_texts + f"{len(drinks)+1}) 주문종료 : "
+
 
 while True:
     menu = int(input(menu_texts))
