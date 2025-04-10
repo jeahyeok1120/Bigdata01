@@ -4,7 +4,9 @@ prices = [1500, 2500, 4000, 4200]
 #amounts = list()
 #for _ in range(len(drinks)):
 #    amounts.append(0)
-amounts = [0 for _ in range(len(drinks)) ] #list comprehension (리스트 축약)
+#amounts = [0 for _ in range(len(drinks)) ] #list comprehension (리스트 축약)
+#수업시간에 곱샘한거 알려줌
+amounts = [0] * len(drinks)
 
 total_price = 0
 
