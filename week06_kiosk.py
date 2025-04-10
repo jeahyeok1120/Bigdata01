@@ -11,7 +11,6 @@ menu_texts = menu_texts + f"{len(drinks)+1}) 주문종료 : "
 
 while True:
     menu = input((menu_texts))
-    #menu = input(f"1) {drinks[0]} {prices[0]}원 2) {drinks[1]} {prices[1]}원 3){drinks[2]} {prices[2]}원 4) 주문종료 : ")
     if menu == "1":
         print(f"{drinks[0]}를 주문하셨습니다. 가격은 {prices[0]}원 입니다")
         total_price = total_price + prices[0]
@@ -33,5 +32,6 @@ while True:
 
 print("상품명 자동 수량 금액")
 for i in range(len(drinks)):
-    print(f"{drinks[i]} {prices[i]} {amounts[i]} {prices[i] * amounts[i]}")
+    if amounts[i] > 0:
+        print(f"{drinks[i]} {prices[i]} {amounts[i]} {prices[i] * amounts[i]}")
 print(f"총 주문 금액 : {total_price}원")
