@@ -56,3 +56,4 @@ while True:
         print(f"{menu}번 메뉴는 존재하지 않습니다. 아래 메뉴에서 골라주세요")
 
 print_receipt()
+:
