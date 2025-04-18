@@ -1,4 +1,5 @@
-from kiosk import *
+# from kiosk import *
+from kiosk import drinks, display_menu, order_process, print_receipt, total_price
 
 while True:
     try:
@@ -19,3 +20,5 @@ while True:
 
 
 print_receipt()
+# test()
+# print(total_price)
