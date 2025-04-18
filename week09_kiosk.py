@@ -1,13 +1,13 @@
-import kiosk as kk
+from kiosk import *
 
 while True:
     try:
         memu = 0
-        menu = int(input(kk.display_menu()))
-        if len(kk.drinks) >= menu >= 1:
-            kk.order_process(menu - 1)
+        menu = int(input(display_menu()))
+        if len(drinks) >= menu >= 1:
+            order_process(menu - 1)
 
-        elif menu == len(kk.drinks) + 1:
+        elif menu == len(drinks) + 1:
             print("주문을 종료합니다")
             break
         else:
@@ -18,4 +18,4 @@ while True:
 # except
 
 
-kk.print_receipt()
+print_receipt()
