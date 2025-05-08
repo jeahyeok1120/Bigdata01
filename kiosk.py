@@ -1,3 +1,16 @@
+# 1) 아아 : 2000 2) 라떼 : 2500
+drinks = ["아이스 아메리카노", "카페 라떼", "수박 주스", "딸기 주스"]
+prices = [1500, 2500, 4000, 4200]
+
+#amounts = list()
+#for _ in range(len(drinks)):
+#    amounts.append(0)
+#amounts = [0 for _ in range(len(drinks)) ] #list comprehension (리스트 축약)
+#수업시간에 곱샘한거 알려줌
+
+total_price = 0
+amounts = [0] * len(drinks)
+
 def order_process(idx: int) -> None:
     """"
     주문 처리 함수 1) 주문 디스플레이 2) 총 주문금액 누산 3)주문 품목 수량 업데이트
@@ -31,15 +44,9 @@ def print_receipt() -> None:
 
     print(f"총 주문 금액 : {total_price}원")
 
-# 1) 아아 : 2000 2) 라떼 : 2500
-drinks = ["아이스 아메리카노", "카페 라떼", "수박 주스", "딸기 주스"]
-prices = [1500, 2500, 4000, 4200]
-
-#amounts = list()
-#for _ in range(len(drinks)):
-#    amounts.append(0)
-#amounts = [0 for _ in range(len(drinks)) ] #list comprehension (리스트 축약)
-#수업시간에 곱샘한거 알려줌
-
-total_price = 0
-amounts = [0] * len(drinks)
+def text() -> None:
+    """
+    앞으로 키오스크에 추가할 기능
+    :return:
+    """
+    pass
