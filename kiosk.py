@@ -7,9 +7,23 @@ prices = [1500, 2500, 4000, 4200]
 #    amounts.append(0)
 #amounts = [0 for _ in range(len(drinks)) ] #list comprehension (리스트 축약)
 #수업시간에 곱샘한거 알려줌
-
-total_price = 0
 amounts = [0] * len(drinks)
+total_price = 0
+
+# 할인 적용 정책
+DISCOUNT_THRESHOLD = 10000 # 할인이 적용되는 임계값 (임계값 이상이면 할인 적용)
+DISCOUNT_RATE = 0.1 # 할인율
+
+def apply_discount(price: int) -> float:
+    """
+    총 금액이 특정 금액을 넘어서면 할인율을 적용 함수
+    :param price: 할인 전 총 금액
+    :return: 할인이 적용된 금액 또는 할인이 적용되지 않은 금액
+    """
+    if price >= DISCOUNT_THRESHOLD:
+        return price * (1 - DISCOUNT_RATE)
+    return price
+
 
 def order_process(idx: int) -> None:
     """"
