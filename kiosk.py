@@ -1,4 +1,5 @@
 import datetime
+import sqlite3
 # 1) 아아 : 2000 2) 라떼 : 2500
 drinks = ["아이스 아메리카노", "카페 라떼", "수박 주스", "딸기 주스"]
 prices = [1500, 2500, 4000, 4200]
@@ -51,21 +52,31 @@ def print_ticket_number() -> None:
     주문 번호표 처리 기능 함수
     :return: None
     """
-    try:
-        with open("ticket.txt", "r") as fp:
-            number = int(fp.read())
-    except FileNotFoundError:
-        number = 0
+    conn = sqlite3.connect('cafe.db')  # db instance open
+    cur = conn.cursor()
 
-    number = number + 1
+    cur.execute('''
+        create table if not exists ticket (
+        id integer primary key autoincrement,
+        number integer not null
+        )
+    ''')
 
+    cur.execute('select number from ticket order by number desc limit 1')
+    result = cur.fetchone()
 
-    with open("ticket.txt", "w") as fp:
-        fp.write(str(number))
+    if result is None:
+        number = 1
+        cur.execute('insert into ticket (number) values (?)', (number,))
+    else:
+        number = result[0] + 1
+        cur.execute('insert into ticket (number) values (?)', (number,))
 
+    conn.commit()
 
-    # return number
     print(f"번호표 : {number}")
+    # return number
+
 def order_process(idx: int) -> None:
     """"
     주문 처리 함수 1) 주문 디스플레이 2) 총 주문금액 누산 3)주문 품목 수량 업데이트
